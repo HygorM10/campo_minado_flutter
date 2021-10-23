@@ -12,8 +12,8 @@ class Campo {
   bool _explodido = false;
 
   Campo({
-    required this.linha,
-    required this.coluna,
+    @required this.linha,
+    @required this.coluna,
   });
 
   void adicionarVizinho(Campo vizinho) {
@@ -41,26 +41,26 @@ class Campo {
       throw ExplosaoException();
     }
 
-    if(vizinhaSegura){
+    if (vizinhaSegura) {
       vizinhos.forEach((v) => v.abrir());
     }
   }
 
-  void revelarBomba(){
-    if(_minado){
+  void revelarBomba() {
+    if (_minado) {
       _aberto = true;
     }
   }
 
-  void minar(){
+  void minar() {
     _minado = true;
   }
 
-  void altenarMarcacao(){
+  void altenarMarcacao() {
     _marcado = !_marcado;
   }
 
-  void reiniciar(){
+  void reiniciar() {
     _aberto = false;
     _marcado = false;
     _minado = false;
@@ -83,7 +83,7 @@ class Campo {
     return _marcado;
   }
 
-  bool get resolvido{
+  bool get resolvido {
     bool minadoEMarcado = minado && marcado;
     bool seguroEAberto = !minado && aberto;
     return minadoEMarcado || seguroEAberto;
@@ -93,7 +93,7 @@ class Campo {
     return vizinhos.every((v) => !v.minado);
   }
 
-  int get qteMinasNaVizinhanca{
+  int get qteMinasNaVizinhanca {
     return vizinhos.where((v) => v.minado).length;
   }
 }

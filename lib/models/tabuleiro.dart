@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:flutter/foundation.dart';
 
 import 'campo.dart';
 
@@ -10,9 +11,9 @@ class Tabuleiro {
   final List<Campo> _campos = [];
 
   Tabuleiro({
-    required this.linhas,
-    required this.colunas,
-    required this.qtdeBombas,
+    @required this.linhas,
+    @required this.colunas,
+    @required this.qtdeBombas,
   }) {
     _criarCampos();
     _relacionarVizinhos();
